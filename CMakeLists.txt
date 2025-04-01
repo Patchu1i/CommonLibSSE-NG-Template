@@ -55,11 +55,11 @@ message("\tAIO Zip to dist: ${AIO_ZIP_TO_DIST}")
 include(XSEPlugin)
 
 # #######################################################################################################################
-# # Find dependencies
+# # Find dependencies for VCPKG or other package managers
 # #######################################################################################################################
+
+# If you add a package here, make sure to include directories and/or libraries below!
 find_package(xbyak CONFIG REQUIRED)
-find_package(imgui CONFIG REQUIRED)
-find_package (minhook CONFIG)
 find_path(CLIB_UTIL_INCLUDE_DIRS "ClibUtil/utils.hpp")
 
 target_include_directories(
@@ -73,8 +73,6 @@ target_link_libraries(
 	${PROJECT_NAME}
 	PRIVATE
 	xbyak::xbyak
-	imgui::imgui
-  minhook::minhook
 )
 
 # https://gitlab.kitware.com/cmake/cmake/-/issues/24922#note_1371990
