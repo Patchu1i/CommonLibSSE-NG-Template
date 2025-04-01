@@ -10,11 +10,14 @@ Template for building SKSE plugins using the NG branch of CommonLibVR.
 - [CMake](https://cmake.org/)
   - Edit the `PATH` environment variable and add the cmake.exe install path as a new value
   - Instructions for finding and editing the `PATH` environment variable can be found [here](https://www.java.com/en/download/help/path.html)
+  - Note: You will see warnings saying "Unable to locate CMake, CMake Executable" if you miss this step.
 - [Git](https://git-scm.com/downloads)
   - Edit the `PATH` environment variable and add the Git.exe install path as a new value
+  - Note: You will see warnings saying "Unable to locate Git" if you missed this step.
 - [Vcpkg](https://github.com/microsoft/vcpkg)
   - Install vcpkg using the directions in vcpkg's [Quick Start Guide](https://github.com/microsoft/vcpkg#quick-start-windows)
   - After install, add a new environment variable named `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
+  - Note: Typically I install this in my `C:/` or `C:/Modding/Code` directory.
 
 ## User Requirements
 
@@ -22,6 +25,9 @@ Template for building SKSE plugins using the NG branch of CommonLibVR.
   - Needed for SSE/AE
 - [VR Address Library for SKSEVR](https://www.nexusmods.com/skyrimspecialedition/mods/58101)
   - Needed for VR
+- [Latest x64 Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+  - Probably needed based on what imports you use
+
 
 ## Register Visual Studio as a Generator
 
