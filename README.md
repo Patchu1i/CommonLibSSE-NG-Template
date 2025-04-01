@@ -30,11 +30,37 @@ Template for building SKSE plugins using the NG branch of CommonLibVR.
 - Close the cmd window
 
 ## Clone and Build
-Open terminal (e.g., PowerShell) and run the following commands:
+Open terminal (e.g., PowerShell, Git Bash) and run the following commands:
 
 ```
-git clone https://github.com/ponzipyramid/CommonLibSSE-NG-Template.git --recursive
+git clone https://github.com/Patchu1i/CommonLibSSE-NG-Template.git
 cd CommonLibSSE-NG-Template
-.\BuildRelease.bat SE/AE
-.\BuildRelease.bat VR
+git submodule init
+git submodule update --recursive
 ```
+This should set you up with a local installation of CLib in your project directory ("../extern/CommonLibSSE-NG/"). If the Git Submodule cmd fails, you can do it manually by following these instructions. I don't really know why submodules sometimes don't work when cloning/forking a repo.
+
+```
+git submodule deinit --all
+<delete the "../extern/" folder in the root project directory>
+<open "../.gitmodules" and clear all (CTRL+A, Backspace)>
+git submodule add -b ng https://github.com/alandtse/CommonLibVR.git extern/CommonLibSSE-NG
+git submodule init
+git submodule update --recursive
+```
+
+You made need to build the project through the "x64 Native Tools Command Prompt for VS2022" first before building it in VSCode.
+
+1. Open "x64 Native Tools Command Prompt for VS2022".
+2. Navigate to your project directory
+3. Type `.\BuildRelease.bat SE/AE` to build a release version for SE/AE specifically.
+3. Type `.\BuildRelease.bat VR` to build a release version for VR specifically.
+
+## CMake Notes, Project Configuration, Etc.
+
+If you would like to build for NG (SE, AE, and VR), you'll need to create your own preset in `CMakePresets.json` since I don't do this typically. This can easily be done by copying the `SE/AE` preset, renaming it, and also toggling the `ENABLE_SKYRIM_VR` variable.
+
+This project uses the `MSVC` compiler with the `Visual Studio 17 2022` generator. It utilizes CMake, and VPKG for package management. Provided is a baseline package setup. You may want to remove/add to `vcpkg.json` at your discretion.
+
+Make sure to setup your Plugin Name and version in `CMakeLists.txt`.
+
