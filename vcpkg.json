@@ -10,17 +10,7 @@
     "spdlog",
     "xbyak",
     "catch2",
-    "clib-util",
-    "simpleini",
-    "minhook",
-    {
-      "name": "imgui",
-      "features": [
-        "dx11-binding",
-        "win32-binding"
-      ],
-      "version>=": "1.91.5"
-    }
+    "clib-util"
   ],
   "builtin-baseline": "83972272512ce4ede5fc3b2ba98f6468b179f192"
 }
