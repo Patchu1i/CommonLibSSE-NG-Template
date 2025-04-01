@@ -1,0 +1,10 @@
+# build
+build/
+[Bb][Uu][Il][Ll][Dd]/
+.vs*/
+CMakeFiles/
+CMakeCache.txt
+/.idea/
+/cmake-build-all
+/cmake-build-debug
+/cmake-build-debug-visual-studio
